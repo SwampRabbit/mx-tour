@@ -1,2 +1,3 @@
 # mx-tour
-Proof of concept Tour Guide application for MX Linux
+
+Proof of concept MX Linux Xfce Tour Guide application created using only Yet Another Dialog (YAD).
