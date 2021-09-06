@@ -1,6 +1,6 @@
-# mx-tour
-
 Proof of concept MX Linux 21 Xfce Tour Guide application created using only Yet Another Dialog (YAD).
+
+# About MX Tour
 
 Take a tour of the Xfce Edition of MX Linux 21
 
