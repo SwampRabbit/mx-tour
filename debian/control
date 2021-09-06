@@ -1,1 +1,17 @@
+Source: mx-tour
+Section: xfce
+Priority: optional
+Maintainer: SwampRabbit <swamprabbit@mxlinux.org>
+Build-Depends: debhelper-compat (= 13),
+Rules-Requires-Root: no
+Standards-Version: 4.5.1
+Homepage: https://github.com/SwampRabbit/mx-tour
 
+Package: mx-tour
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Take a tour of the Xfce Edition of MX Linux 21
+ Using a new Operating System for the first time can seem challenging and scary.
+ .
+ MX Tour is designed to introduce and orient you to many of the features and 
+ graphical tools of the Xfce Edition of MX Linux.
