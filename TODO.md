@@ -1,6 +1,7 @@
 # TODO
 
 + Identify if YAD is supposed to spawn processes for each Notebook tab, fix if not
++ Fix window-icon not working
 + Refine current text dialogs to a final product
 + Add more Tabs for other MX Tools and other features
 + Add links to MX wiki and MX Manual entries
