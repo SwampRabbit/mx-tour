@@ -1,0 +1,5 @@
+text/* usr/share/mx-tour/text
+images/* usr/share/mx-tour/images
+mx-tour.desktop usr/share/applications/
+mx-tour.svg usr/share/pixmaps/
+mx-tour usr/bin/
