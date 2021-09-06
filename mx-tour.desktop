@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=MX Tour
+Comment=Explore MX Linux 21 Xfce Edition.
+Exec=mx-tour
+Type=Application
+Icon=mx-tour.svg
+Categories=System;MX-Setup;
+Terminal=false
+NoDisplay=false
+StartupNotify=false
