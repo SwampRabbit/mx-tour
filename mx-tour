@@ -104,6 +104,7 @@ yad --notebook --width=1024 --height=800 --fixed --center \
 	--tab="Install Apps" \
 	--tab="Updating" \
 	--tab="MX Snapshot" \
+	--tab="Timeshift" \
 	--tab="System Info" \
 	--tab="Get Help" \
 	--active-tab=${1:-1}
