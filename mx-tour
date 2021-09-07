@@ -67,15 +67,21 @@ cat /usr/share/mx-tour/text/mx-snapshot |\
 	yad --plug=$KEY --tabnum=10 \
 		--image=/usr/share/mx-tour/images/mx-snapshot.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
-		
+
+# Timeshift tab
+cat /usr/share/mx-tour/text/timeshift |\
+	yad --plug=$KEY --tabnum=11 \
+		--image=/usr/share/mx-tour/images/timeshift.png --image-on-top \
+		--text-info --quoted-output --wrap --margins=5 &
+
 # QSI tab
 cat /usr/share/mx-tour/text/qsi |\
-	yad --plug=$KEY --tabnum=11 \
+	yad --plug=$KEY --tabnum=12 \
 		--image=/usr/share/mx-tour/images/qsi.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # Get Help tab
-	yad --plug=$KEY --tabnum=12 --image=help-browser --text=$"Get Help" \
+	yad --plug=$KEY --tabnum=13 --image=help-browser --text=$"Get Help" \
 		--text="<b>There are many resources to get help</b>" --text-align=center &
 
 
