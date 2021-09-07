@@ -62,14 +62,20 @@ cat /usr/share/mx-tour/text/mx-updater |\
 		--image=/usr/share/mx-tour/images/mx-updater.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
+# MX Snapshot tab
+cat /usr/share/mx-tour/text/mx-snapshot |\
+	yad --plug=$KEY --tabnum=10 \
+		--image=/usr/share/mx-tour/images/mx-snapshot.png --image-on-top \
+		--text-info --quoted-output --wrap --margins=5 &
+		
 # QSI tab
 cat /usr/share/mx-tour/text/qsi |\
-	yad --plug=$KEY --tabnum=10 \
+	yad --plug=$KEY --tabnum=11 \
 		--image=/usr/share/mx-tour/images/qsi.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # Get Help tab
-	yad --plug=$KEY --tabnum=11 --image=help-browser --text=$"Get Help" \
+	yad --plug=$KEY --tabnum=12 --image=help-browser --text=$"Get Help" \
 		--text="<b>There are many resources to get help</b>" --text-align=center &
 
 
@@ -91,6 +97,7 @@ yad --notebook --width=1024 --height=800 --fixed --center \
 	--tab="MX Tweak"  \
 	--tab="Install Apps" \
 	--tab="Updating" \
+	--tab="MX Snapshot" \
 	--tab="System Info" \
 	--tab="Get Help" \
 	--active-tab=${1:-1}
