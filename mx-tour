@@ -32,56 +32,62 @@ cat /usr/share/mx-tour/text/docklike |\
 		--image=/usr/share/mx-tour/images/docklike.png --image-on-top \
 		--text-info --wrap --margins=5 &
 
+# Conky tab
+cat /usr/share/mx-tour/text/conky |\
+	yad --plug=$KEY --tabnum=5 \
+		--image=/usr/share/mx-tour/images/conky.png --image-on-top \
+		--text-info --wrap --margins=5 &
+
 # MX Tools tab
 cat /usr/share/mx-tour/text/mx-tools |\
-	yad --plug=$KEY --tabnum=5 \
+	yad --plug=$KEY --tabnum=6 \
 		--image=/usr/share/mx-tour/images/mx-tools.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 & \
 
 # MX Welcome tab
 cat /usr/share/mx-tour/text/mx-welcome |\
-	yad --plug=$KEY --tabnum=6 \
+	yad --plug=$KEY --tabnum=7 \
 		--image=/usr/share/mx-tour/images/mx-welcome.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # MX Tweak tab
 cat /usr/share/mx-tour/text/mx-tweak |\
-	yad --plug=$KEY --tabnum=7 \
+	yad --plug=$KEY --tabnum=8 \
 		--image=/usr/share/mx-tour/images/mx-tweak.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # Install Apps tab
 cat /usr/share/mx-tour/text/mxpi |\
-	yad --plug=$KEY --tabnum=8 \
+	yad --plug=$KEY --tabnum=9 \
 		--image=/usr/share/mx-tour/images/mxpi.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 & \
 
 # MX Updater tab
 cat /usr/share/mx-tour/text/mx-updater |\
-	yad --plug=$KEY --tabnum=9 \
+	yad --plug=$KEY --tabnum=10 \
 		--image=/usr/share/mx-tour/images/mx-updater.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # MX Snapshot tab
 cat /usr/share/mx-tour/text/mx-snapshot |\
-	yad --plug=$KEY --tabnum=10 \
+	yad --plug=$KEY --tabnum=11 \
 		--image=/usr/share/mx-tour/images/mx-snapshot.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # Timeshift tab
 cat /usr/share/mx-tour/text/timeshift |\
-	yad --plug=$KEY --tabnum=11 \
+	yad --plug=$KEY --tabnum=12 \
 		--image=/usr/share/mx-tour/images/timeshift.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # QSI tab
 cat /usr/share/mx-tour/text/qsi |\
-	yad --plug=$KEY --tabnum=12 \
+	yad --plug=$KEY --tabnum=13 \
 		--image=/usr/share/mx-tour/images/qsi.png --image-on-top \
 		--text-info --quoted-output --wrap --margins=5 &
 
 # Get Help tab
-	yad --plug=$KEY --tabnum=13 --image=help-browser --text=$"Get Help" \
+	yad --plug=$KEY --tabnum=14 --image=help-browser --text=$"Get Help" \
 		--text="<b>There are many resources to get help</b>" --text-align=center &
 
 
@@ -98,6 +104,7 @@ yad --notebook --width=1024 --height=800 --fixed --center \
 	--tab="Panel" \
 	--tab="Whisker Menu" \
 	--tab="Taskbar" \
+	--tab="Conky" \
 	--tab="MX Tools" \
 	--tab="MX Welcome"  \
 	--tab="MX Tweak"  \
