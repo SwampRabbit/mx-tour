@@ -1,6 +1,6 @@
 Timeshift is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system and settings at scheduled intervals. These snapshots can be restored at a later date to undo all changes to the system.
 
-When you open Timeshift the first time, a Setup Wizard will run allowing you to select the location the snapshot is saved to, the schedule, and if you want to include personal files or not.  You can rerun the Setup Wizard or change these settings at any time.
+When you open Timeshift the first time, a Setup Wizard will run allowing you to select the location snapshots are saved to, the schedule, and if you want to include personal files or not.  You can rerun the Setup Wizard or change these settings at any time.
 
 User files such as documents, pictures and music are excluded by default. This ensures that your personal files remain unchanged when you restore your system to an earlier date.
 
