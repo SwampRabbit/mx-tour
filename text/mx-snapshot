@@ -1,5 +1,7 @@
 MX Snapshot allows you to create a bootable live-CD/DVD ISO of your currently running MX Linux or antiX system/installation.
 
+The bootable live-CD/DVD ISO can be used as a recovery method or to install on other systems.
+
 Two types of Snapshot ISOs can be created:
-“Personal Snapshot” - saves pretty much everything, used if you want to backup your current system including /home
-“System Snapshot” - with all the apps you installed and without all the apps you removed, but without anything in /home.
+“Personal Snapshot” - saves almost everything, used to backup your current system, and personal files
+“System Snapshot” - with apps you installed and without ones you removed, and no personal files
