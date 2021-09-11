@@ -1,119 +1,193 @@
-#! /bin/bash
+#!/bin/bash
 
 # MX Tour for MX Linux 21 Xfce
-# 
+#
 # Hastily put together Tour Guide application for MX Linux 21 Xfce.
 
 # set some stuff up
-KEY=$$
+KEY=$(( ($$ * $RANDOM) % 2**15))
 
+# set to run dir if images and text exists
+[[ ${0%%/*} == . ]] && [[ -d text   ]] && TXTDIR=./text
+[[ ${0%%/*} == . ]] && [[ -d images ]] && IMGDIR=./images
+
+: ${TXTDIR:=/usr/share/mx-tour/text}
+: ${IMGDIR:=/usr/share/mx-tour/images}
+
+WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
+WINDOW_CLASS=mx-tour
+WINDOW_WIDTH=1024
+WINDOW_HEIGHT=740
+
+# l10n
+export TEXTDOMAIN=mx-tour
+export TEXTDOMAINDIR=/usr/share/locale
+#. gettext.sh
+
+        TITLE=$(gettext "MX Tour")
+        INTRO=$(gettext "Intro")
+        PANEL=$(gettext "Panel")
+      TASKBAR=$(gettext "Taskbar")
+        CONKY=$(gettext "Conky")
+     MX_TOOLS=$(gettext "MX Tools")
+   MX_WELCOME=$(gettext "MX Welcome")
+     MX_TWEAK=$(gettext "MX Tweak")
+ INSTALL_APPS=$(gettext "Install Apps")
+     UPDATING=$(gettext "Updating")
+  MX_SNAPSHOT=$(gettext "MX Snapshot")
+    TIMESHIFT=$(gettext "Timeshift")
+  SYSTEM_INFO=$(gettext "System Info")
+     GET_HELP=$(gettext "Get Help")
+ WHISKER_MENU=$(gettext "Whisker Menu")
+      WELCOME=$(gettext "WELCOME TO THE MX LINUX TOUR")
+
+     HELPTEXT=$(gettext "There are many resources to get help")
+
+        CLOSE=$(gettext gtk30 "_Close")
+         NEXT=$(gettext gtk30 "_Next")
+     PREVIOUS=$(gettext gtk30 "_Previous")
+
+
+# some functions
+pushtext(){  # push text file into var
+    local file=${1} var=${2}
+    : ${file:=-}
+    IFS='' read -r -d '' ${var} < <( eval cat "${file}") || true
+}
+# push texfiles into bash var's , where varname corresponds to filename 
+for F in ${TXTDIR}/*; do
+    [[ -f ${F}      ]] || continue     # only files
+    
+    N=${F##*/}   # basename
+    N=${N//-/_}  # replace hyphens with underline
+    [[ -z ${N##*.*} ]] && continue  # ignore any backup files with dot
+    [[ -z ${N##*~}  ]] && continue  # ignore any backup files with ~
+
+    declare -n nameref=$N
+    pushtext "$F" $N
+	nameref=$(gettext "$nameref")
+done
+
+TEXT_INFO="--text-info --wrap --margins=5"
 
 # Intro tab
-cat /usr/share/mx-tour/text/tour-intro |\
-	yad --plug=$KEY --tabnum=1 --text=$"Intro" \
-		--text="<b>WELCOME TO THE MX LINUX TOUR</b>" --text-align=center \
-		--text-info --wrap --margins=5 &
+yad --plug=$KEY --tabnum=1      \
+    --text="$INTRO"             \
+    --text="<b>$WELCOME</b>"    \
+    --text-align=center         \
+    $TEXT_INFO <<<$tour_intro &
 
 # Panel tab
-cat /usr/share/mx-tour/text/panel |\
-	yad --plug=$KEY --tabnum=2 \
-		--image=/usr/share/mx-tour/images/panel.png \
-		--text-info --wrap --margins=5 &
-		
+yad --plug=$KEY --tabnum=2         \
+    --image=${IMGDIR}/panel.png    \
+    $TEXT_INFO <<<$panel &
+
 # Whisker Menu tab
-cat /usr/share/mx-tour/text/whisker-menu |\
-	yad --plug=$KEY --tabnum=3 \
-		--image=/usr/share/mx-tour/images/whisker-menu.png \
-		--text-info --wrap --margins=5 &
+yad --plug=$KEY --tabnum=3             \
+    --image=${IMGDIR}/whisker-menu.png \
+    $TEXT_INFO <<<$whisker_menu &
 
 # Docklike tab
-cat /usr/share/mx-tour/text/docklike |\
-	yad --plug=$KEY --tabnum=4 \
-		--image=/usr/share/mx-tour/images/docklike.png --image-on-top \
-		--text-info --wrap --margins=5 &
+yad --plug=$KEY --tabnum=4         \
+    --image=${IMGDIR}/docklike.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$docklike &
 
 # Conky tab
-cat /usr/share/mx-tour/text/conky |\
-	yad --plug=$KEY --tabnum=5 \
-		--image=/usr/share/mx-tour/images/conky.png --image-on-top \
-		--text-info --wrap --margins=5 &
+yad --plug=$KEY --tabnum=5      \
+    --image=${IMGDIR}/conky.png \
+    --image-on-top              \
+    $TEXT_INFO <<<$conky &
 
 # MX Tools tab
-cat /usr/share/mx-tour/text/mx-tools |\
-	yad --plug=$KEY --tabnum=6 \
-		--image=/usr/share/mx-tour/images/mx-tools.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 & \
+yad --plug=$KEY --tabnum=6         \
+    --image=${IMGDIR}/mx-tools.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mx_tools &
 
 # MX Welcome tab
-cat /usr/share/mx-tour/text/mx-welcome |\
-	yad --plug=$KEY --tabnum=7 \
-		--image=/usr/share/mx-tour/images/mx-welcome.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=7           \
+    --image=${IMGDIR}/mx-welcome.png \
+    --image-on-top                   \
+    $TEXT_INFO <<<$mx_welcome &
 
 # MX Tweak tab
-cat /usr/share/mx-tour/text/mx-tweak |\
-	yad --plug=$KEY --tabnum=8 \
-		--image=/usr/share/mx-tour/images/mx-tweak.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=8         \
+    --image=${IMGDIR}/mx-tweak.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mx_tweak &
 
 # Install Apps tab
-cat /usr/share/mx-tour/text/mxpi |\
-	yad --plug=$KEY --tabnum=9 \
-		--image=/usr/share/mx-tour/images/mxpi.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 & \
+yad --plug=$KEY --tabnum=9     \
+    --image=${IMGDIR}/mxpi.png \
+    --image-on-top             \
+    $TEXT_INFO <<<$mxpi &
 
 # MX Updater tab
-cat /usr/share/mx-tour/text/mx-updater |\
-	yad --plug=$KEY --tabnum=10 \
-		--image=/usr/share/mx-tour/images/mx-updater.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=10          \
+    --image=${IMGDIR}/mx-updater.png \
+    --image-on-top                   \
+    $TEXT_INFO <<<$mx_updater &
 
 # MX Snapshot tab
-cat /usr/share/mx-tour/text/mx-snapshot |\
-	yad --plug=$KEY --tabnum=11 \
-		--image=/usr/share/mx-tour/images/mx-snapshot.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=11           \
+    --image=${IMGDIR}/mx-snapshot.png \
+    --image-on-top                    \
+    $TEXT_INFO <<<$mx_snapshot &
 
 # Timeshift tab
-cat /usr/share/mx-tour/text/timeshift |\
-	yad --plug=$KEY --tabnum=12 \
-		--image=/usr/share/mx-tour/images/timeshift.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=12         \
+    --image=${IMGDIR}/timeshift.png \
+    --image-on-top                  \
+    $TEXT_INFO <<<$timeshift &
 
 # QSI tab
-cat /usr/share/mx-tour/text/qsi |\
-	yad --plug=$KEY --tabnum=13 \
-		--image=/usr/share/mx-tour/images/qsi.png --image-on-top \
-		--text-info --quoted-output --wrap --margins=5 &
+yad --plug=$KEY --tabnum=13   \
+    --image=${IMGDIR}/qsi.png \
+    --image-on-top            \
+    $TEXT_INFO <<<$qsi &
 
 # Get Help tab
-	yad --plug=$KEY --tabnum=14 --image=help-browser --text=$"Get Help" \
-		--text="<b>There are many resources to get help</b>" --text-align=center &
-
+    yad --plug=$KEY --tabnum=14 \
+    --image=help-browser        \
+    --text="$GET_HELP"          \
+    --text="<b>$HELPTEXT</b>"   \
+    --text-align=center &
 
 # main dialog
-yad --notebook --width=1024 --height=800 --fixed --center \
-	--stack \
-	--title="MX Tour" \
-	--window-icon=usr/share/icons/hicolor/scalable/apps/mx-tour.svg \
-	--button="Close" \
-	--button="Previous" \
-	--button="Next" \
-	--key=$KEY --tab-pos=left \
-	--tab="Intro" \
-	--tab="Panel" \
-	--tab="Whisker Menu" \
-	--tab="Taskbar" \
-	--tab="Conky" \
-	--tab="MX Tools" \
-	--tab="MX Welcome"  \
-	--tab="MX Tweak"  \
-	--tab="Install Apps" \
-	--tab="Updating" \
-	--tab="MX Snapshot" \
-	--tab="Timeshift" \
-	--tab="System Info" \
-	--tab="Get Help" \
-	--active-tab=${1:-1}
+MAIN=(
+    yad
+    --notebook
+    --title="$TITLE"
+    --window-icon="$WINDOW_ICON"
+    --class="$WINDOW_CLASS"
+    --width=$WINDOW_WIDTH
+    --height=$WINDOW_HEIGHT
+    --fixed
+    --center
+    --stack
+    --button="$CLOSE"
+#   --button="$PREVIOUS"
+#   --button="$NEXT"
+    --key=$KEY
+    --tab-pos=left
+    --tab="$INTRO"
+    --tab="$PANEL"
+    --tab="$WHISKER_MENU"
+    --tab="$TASKBAR"
+    --tab="$CONKY"
+    --tab="$MX_TOOLS"
+    --tab="$MX_WELCOME"
+    --tab="$MX_TWEAK"
+    --tab="$INSTALL_APPS"
+    --tab="$UPDATING"
+    --tab="$MX_SNAPSHOT"
+    --tab="$TIMESHIFT"
+    --tab="$SYSTEM_INFO"
+    --tab="$GET_HELP"
+    --active-tab=${1:-1}
+    )
+
+"${MAIN[@]}"
 
 exit 0
