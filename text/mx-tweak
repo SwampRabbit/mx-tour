@@ -1,10 +1,9 @@
-MX Tweak brings together a number of small but often used customizations organized under different Tabs.
+MX Tweak brings together many small but often used customizations organized under different Tabs.
 
 Tabs Overview:
-  • Panel - change the location and orientation of the panel, access the Docklike Taskbar properties
-  • Theme - select a Theme Set and or individual Application, Window Manager, and Icon themes
-  • Compositor - change commonly needed Window Manager Compositor options
-  • Display - change Desktop scaling, monitor resolution, and brightness settings
-  • Config Options - change Single-Click and Double-Click options and enable Desktop Zoom
-  • Other - enable mounting internal drives by non-administrators, TearFree rendering, and switching the
-    account used for administrative actions
+ • Panel - change the location and orientation of the panel, access the Docklike Taskbar properties
+ • Theme - select a Theme Set and or individual Application, Window Manager, and Icon themes
+ • Compositor - change commonly needed Window Manager Compositor options
+ • Display - change Desktop scaling, monitor resolution, and brightness settings
+ • Config Options - change Single-Click and Double-Click options and enable Desktop Zoom
+ • Other - enable internal drive mount options, TearFree rendering, switch administrative account
