@@ -1,6 +1,6 @@
 MX Package Installer, often referred to simply as MXPI, allows you to search for, install, or remove packages and applications quickly, safely, and easily.
 
-It is comprised of Tabs which allow you to manage "Popular Applications" and any package in the MX/Debian Stable, the MX Test, Debian Backports, and Flatpak repositories.
+It is comprised of Tabs to help you install "Popular Applications" and any package in the MX/Debian Stable, the MX Test, Debian Backports, and Flatpak repositories.
 
 The Popular Applications tab is organized by categories for easy searching and installation.
 

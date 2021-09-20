@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# MX Tour for MX Linux 21 Xfce
+# MX Tour for MX Linux 21
 #
-# Hastily put together Tour Guide application for MX Linux 21 Xfce.
+# Hastily put together Tour Guide application for MX Linux 21.
 
 # set some stuff up
 KEY=$(( ($$ * $RANDOM) % 2**15))
@@ -15,6 +15,7 @@ KEY=$(( ($$ * $RANDOM) % 2**15))
 : ${IMGDIR:=/usr/share/mx-tour/images}
 
 WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
+#pretty sure we don't need the width and height anymore here
 WINDOW_CLASS=mx-tour
 WINDOW_WIDTH=1024
 WINDOW_HEIGHT=740
@@ -43,6 +44,10 @@ export TEXTDOMAINDIR=/usr/share/locale
 
      HELPTEXT=$(gettext "There are many resources to get help")
 
+NO_TOUR=$(gettext "\n<b>You are not using a MX Tour compatible Desktop Environment or Window Manager.\n</b>
+MX Tour is only compatible with the MX Linux Xfce, KDE, and Fluxbox editions.\n
+This window will close automatically in 10 seconds.")
+
         CLOSE=$(gettext gtk30 "_Close")
          NEXT=$(gettext gtk30 "_Next")
      PREVIOUS=$(gettext gtk30 "_Previous")
@@ -68,125 +73,30 @@ for F in ${TXTDIR}/*; do
 	nameref=$(gettext "$nameref")
 done
 
-TEXT_INFO="--text-info --wrap --margins=5"
+notour(){ #there is no compatible MX Tour to use
+	yad --title "MX Tour" --width=455 --height=250 --fixed --center \
+	--image=face-sad \
+	--borders=15 \
+	--timeout=10 --timeout-indicator=bottom \
+	--text="$NON_COMPAT\n" --text-align=center \
+	--button=gtk-close:1 &
+}
 
-# Intro tab
-yad --plug=$KEY --tabnum=1      \
-    --text="$INTRO"             \
-    --text="<b>$WELCOME</b>"    \
-    --text-align=center         \
-    $TEXT_INFO <<<$tour_intro &
+# find the Window Managaer in use
+WM=$(xprop -id $(xprop -root -notype _NET_SUPPORTING_WM_CHECK| cut -d\# -f2) -notype -len 100 -f _NET_WM_NAME 8t | grep ^_NET_WM_NAME | cut -d\" -f2)
+# output what xprop found in case we need to debug something
+echo "The Window Manager found being used is $WM"
 
-# Panel tab
-yad --plug=$KEY --tabnum=2         \
-    --image=${IMGDIR}/panel.png    \
-    $TEXT_INFO <<<$panel &
-
-# Whisker Menu tab
-yad --plug=$KEY --tabnum=3             \
-    --image=${IMGDIR}/whisker-menu.png \
-    $TEXT_INFO <<<$whisker_menu &
-
-# Docklike tab
-yad --plug=$KEY --tabnum=4         \
-    --image=${IMGDIR}/docklike.png \
-    --image-on-top                 \
-    $TEXT_INFO <<<$docklike &
-
-# Conky tab
-yad --plug=$KEY --tabnum=5      \
-    --image=${IMGDIR}/conky.png \
-    --image-on-top              \
-    $TEXT_INFO <<<$conky &
-
-# MX Tools tab
-yad --plug=$KEY --tabnum=6         \
-    --image=${IMGDIR}/mx-tools.png \
-    --image-on-top                 \
-    $TEXT_INFO <<<$mx_tools &
-
-# MX Welcome tab
-yad --plug=$KEY --tabnum=7           \
-    --image=${IMGDIR}/mx-welcome.png \
-    --image-on-top                   \
-    $TEXT_INFO <<<$mx_welcome &
-
-# MX Tweak tab
-yad --plug=$KEY --tabnum=8         \
-    --image=${IMGDIR}/mx-tweak.png \
-    --image-on-top                 \
-    $TEXT_INFO <<<$mx_tweak &
-
-# Install Apps tab
-yad --plug=$KEY --tabnum=9     \
-    --image=${IMGDIR}/mxpi.png \
-    --image-on-top             \
-    $TEXT_INFO <<<$mxpi &
-
-# MX Updater tab
-yad --plug=$KEY --tabnum=10          \
-    --image=${IMGDIR}/mx-updater.png \
-    --image-on-top                   \
-    $TEXT_INFO <<<$mx_updater &
-
-# MX Snapshot tab
-yad --plug=$KEY --tabnum=11           \
-    --image=${IMGDIR}/mx-snapshot.png \
-    --image-on-top                    \
-    $TEXT_INFO <<<$mx_snapshot &
-
-# Timeshift tab
-yad --plug=$KEY --tabnum=12         \
-    --image=${IMGDIR}/timeshift.png \
-    --image-on-top                  \
-    $TEXT_INFO <<<$timeshift &
-
-# QSI tab
-yad --plug=$KEY --tabnum=13   \
-    --image=${IMGDIR}/qsi.png \
-    --image-on-top            \
-    $TEXT_INFO <<<$qsi &
-
-# Get Help tab
-    yad --plug=$KEY --tabnum=14 \
-    --image=help-browser        \
-    --text="$GET_HELP"          \
-    --text="<b>$HELPTEXT</b>"   \
-    --text-align=center &
-
-# main dialog
-MAIN=(
-    yad
-    --notebook
-    --title="$TITLE"
-    --window-icon="$WINDOW_ICON"
-    --class="$WINDOW_CLASS"
-    --width=$WINDOW_WIDTH
-    --height=$WINDOW_HEIGHT
-    --fixed
-    --center
-    --stack
-    --button="$CLOSE"
-#   --button="$PREVIOUS"
-#   --button="$NEXT"
-    --key=$KEY
-    --tab-pos=left
-    --tab="$INTRO"
-    --tab="$PANEL"
-    --tab="$WHISKER_MENU"
-    --tab="$TASKBAR"
-    --tab="$CONKY"
-    --tab="$MX_TOOLS"
-    --tab="$MX_WELCOME"
-    --tab="$MX_TWEAK"
-    --tab="$INSTALL_APPS"
-    --tab="$UPDATING"
-    --tab="$MX_SNAPSHOT"
-    --tab="$TIMESHIFT"
-    --tab="$SYSTEM_INFO"
-    --tab="$GET_HELP"
-    --active-tab=${1:-1}
-    )
+# launch the appropriate MX Tour or display incompatibility warning
+if [ "$WM" == "Xfwm4" ];
+then
+	source mx-xfce-tour
+elif [ "$WM" == "KWin" ];
+then
+	source mx-kde-tour
+else
+	notour
+fi
 
 "${MAIN[@]}"
 

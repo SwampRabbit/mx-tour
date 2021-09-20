@@ -1,7 +1,8 @@
 # TODO
 
-+ Finalize Internationalization of everything
++ Correct and finalize Internationalization of everything (I think I broke it a bit)
 + Fix window-icon not working
++ Complete out KDE Tour tabs
 + Refine current text dialogs to a final product
 + Refine images a bit more
 + Add links to MX wiki and MX Manual entries within text dialogs

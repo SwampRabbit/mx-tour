@@ -4,3 +4,5 @@ mx-tour.desktop usr/share/applications/
 mx-tour.svg usr/share/pixmaps/
 mx-tour.svg usr/share/icons/hicolor/scalable/apps/
 mx-tour usr/bin/
+mx-xfce-tour usr/bin/
+mx-kde-tour usr/bin/
