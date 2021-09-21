@@ -8,7 +8,7 @@ Standards-Version: 4.5.1
 Homepage: https://github.com/SwampRabbit/mx-tour
 
 Package: mx-tour
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}
 Description: Take a tour of the Xfce Edition of MX Linux 21
  Using a new Operating System for the first time can seem challenging and scary.

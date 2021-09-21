@@ -78,7 +78,7 @@ notour(){ #there is no compatible MX Tour to use
 	--image=face-sad \
 	--borders=15 \
 	--timeout=10 --timeout-indicator=bottom \
-	--text="$NON_COMPAT\n" --text-align=center \
+	--text="$NO_TOUR\n" --text-align=center \
 	--button=gtk-close:1 &
 }
 
