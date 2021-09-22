@@ -28,6 +28,7 @@ export TEXTDOMAINDIR=/usr/share/locale
         INTRO=$(gettext "Intro")
         PANEL=$(gettext "Panel")
       TASK_MANAGER=$(gettext "Task Manager")
+      SYS_TRAY=$(gettext "System Tray")
         CONKY=$(gettext "Conky")
      MX_TOOLS=$(gettext "MX Tools")
    MX_WELCOME=$(gettext "MX Welcome")
@@ -94,62 +95,68 @@ yad --plug=$KEY --tabnum=4         \
     --image-on-top                 \
     $TEXT_INFO <<<$task_manager &
 
+# Systray tab
+yad --plug=$KEY --tabnum=5         \
+    --image=${IMGDIR}/kde_systray.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$kde_systray &
+
 # Conky tab
-yad --plug=$KEY --tabnum=5      \
+yad --plug=$KEY --tabnum=6      \
     --image=${IMGDIR}/conky.png \
     --image-on-top              \
     $TEXT_INFO <<<$conky &
 
 # MX Tools tab
-yad --plug=$KEY --tabnum=6         \
+yad --plug=$KEY --tabnum=7         \
     --image=${IMGDIR}/mx_tools.png \
     --image-on-top                 \
     $TEXT_INFO <<<$mx_tools &
 
 # MX Welcome tab
-yad --plug=$KEY --tabnum=7           \
+yad --plug=$KEY --tabnum=8           \
     --image=${IMGDIR}/mx_welcome.png \
     --image-on-top                   \
     $TEXT_INFO <<<$mx_welcome &
 
 # MX Tweak tab
-yad --plug=$KEY --tabnum=8         \
+yad --plug=$KEY --tabnum=9         \
     --image=${IMGDIR}/mx_tweak.png \
     --image-on-top                 \
     $TEXT_INFO <<<$mx_tweak &
 
 # Install Apps tab
-yad --plug=$KEY --tabnum=9     \
+yad --plug=$KEY --tabnum=10     \
     --image=${IMGDIR}/mxpi.png \
     --image-on-top             \
     $TEXT_INFO <<<$mxpi &
 
-# MX Updater tab
-yad --plug=$KEY --tabnum=10          \
-    --image=${IMGDIR}/mx_updater.png \
+# Discover tab
+yad --plug=$KEY --tabnum=11          \
+    --image=${IMGDIR}/discover.png \
     --image-on-top                   \
-    $TEXT_INFO <<<$mx_updater &
+    $TEXT_INFO <<<$discover &
 
 # MX Snapshot tab
-yad --plug=$KEY --tabnum=11           \
+yad --plug=$KEY --tabnum=12           \
     --image=${IMGDIR}/mx_snapshot.png \
     --image-on-top                    \
     $TEXT_INFO <<<$mx_snapshot &
 
 # Timeshift tab
-yad --plug=$KEY --tabnum=12         \
+yad --plug=$KEY --tabnum=13         \
     --image=${IMGDIR}/timeshift.png \
     --image-on-top                  \
     $TEXT_INFO <<<$timeshift &
 
 # QSI tab
-yad --plug=$KEY --tabnum=13   \
+yad --plug=$KEY --tabnum=14   \
     --image=${IMGDIR}/qsi.png \
     --image-on-top            \
     $TEXT_INFO <<<$qsi &
 
 # Get Help tab
-    yad --plug=$KEY --tabnum=14 \
+    yad --plug=$KEY --tabnum=15 \
     --image=help-browser        \
     --text="$GET_HELP"          \
     --text="<b>$HELPTEXT</b>"   \
@@ -167,7 +174,7 @@ MAIN=(
     --fixed
     --center
     --stack
-    --button="$CLOSE"
+#    --button="$CLOSE"
 #   --button="$PREVIOUS"
 #   --button="$NEXT"
     --key=$KEY
@@ -176,6 +183,7 @@ MAIN=(
     --tab="$PANEL"
     --tab="$KDE_MENU"
     --tab="$TASK_MANAGER"
+    --tab="$SYS_TRAY"
     --tab="$CONKY"
     --tab="$MX_TOOLS"
     --tab="$MX_WELCOME"

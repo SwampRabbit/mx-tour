@@ -166,7 +166,7 @@ MAIN=(
     --fixed
     --center
     --stack
-    --button="$CLOSE"
+#    --button="$CLOSE"
 #   --button="$PREVIOUS"
 #   --button="$NEXT"
     --key=$KEY
