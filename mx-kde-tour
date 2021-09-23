@@ -131,11 +131,11 @@ yad --plug=$KEY --tabnum=10     \
     --image-on-top             \
     $TEXT_INFO <<<$mxpi &
 
-# Discover tab
+# Discover Updates tab
 yad --plug=$KEY --tabnum=11          \
-    --image=${IMGDIR}/discover.png \
+    --image=${IMGDIR}/kde_update.png \
     --image-on-top                   \
-    $TEXT_INFO <<<$discover &
+    $TEXT_INFO <<<$kde_update &
 
 # MX Snapshot tab
 yad --plug=$KEY --tabnum=12           \
