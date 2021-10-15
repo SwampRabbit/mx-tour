@@ -16,8 +16,8 @@ KEY=$(( ($$ * $RANDOM) % 2**15))
 
 WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
 WINDOW_CLASS=mx-tour
-WINDOW_WIDTH=1024
-WINDOW_HEIGHT=740
+WINDOW_WIDTH=950
+WINDOW_HEIGHT=724
 
 # l10n
 export TEXTDOMAIN=mx-tour
@@ -41,7 +41,7 @@ export TEXTDOMAINDIR=/usr/share/locale
  WHISKER_MENU=$(gettext "Whisker Menu")
       WELCOME=$(gettext "WELCOME TO THE MX LINUX TOUR")
 
-     HELPTEXT=$(gettext "There are many resources to get help")
+    HELPTEXT=$(gettext "Below are some available resources to get help")
 
         CLOSE=$(gettext gtk30 "_Close")
          NEXT=$(gettext gtk30 "_Next")
@@ -151,8 +151,8 @@ yad --plug=$KEY --tabnum=13   \
     yad --plug=$KEY --tabnum=14 \
     --image=help-browser        \
     --text="$GET_HELP"          \
-    --text="<b>$HELPTEXT</b>"   \
-    --text-align=center &
+    --text="<b>$HELPTEXT</b>" --text-align=center \
+    yad --icons --read-dir=/usr/share/mx-tour/desktop-files/ --single-click --monitor --icon-size=64 --item-width=96 &
 
 # main dialog
 MAIN=(
@@ -163,9 +163,11 @@ MAIN=(
     --class="$WINDOW_CLASS"
     --width=$WINDOW_WIDTH
     --height=$WINDOW_HEIGHT
+    --no-buttons
     --fixed
     --center
     --stack
+    --fontname=Sans
 #    --button="$CLOSE"
 #   --button="$PREVIOUS"
 #   --button="$NEXT"

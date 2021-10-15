@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=System;
+Exec=xdg-open https://mxlinux.org/wiki/
+GenericName[en_US]=MX Wiki
+GenericName=MX Wiki
+Icon=wikipedia
+MimeType=
+Name=MX Wiki
+Comment=Find answers on the MX Wiki
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

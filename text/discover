@@ -1,0 +1,5 @@
+Discover is also available for use to search for, install, or remove packages and applications quickly, safely, and easily.
+
+It is a KDE native application so it also allows you to install KDE application and Plasma Add-ons such as widgets and extensions.
+
+Discover may be considered more user friendly for new users but it is not configured for One Click installs from the MX "Popular Applications", the MX Test, Debian Backports, and Flatpak repositories.  For these you should use MX Package Installer.

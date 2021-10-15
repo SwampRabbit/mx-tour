@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=System;
+Exec=xdg-open https://www.facebook.com/groups/665300826967101/
+GenericName[en_US]=MX on Facebook
+GenericName=MX on Facebook
+Icon=facebook
+MimeType=
+Name=MX on Facebook
+Comment=Talk with the MX Community on Facebook
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

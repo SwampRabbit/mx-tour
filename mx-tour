@@ -42,7 +42,7 @@ export TEXTDOMAINDIR=/usr/share/locale
  WHISKER_MENU=$(gettext "Whisker Menu")
       WELCOME=$(gettext "WELCOME TO THE MX LINUX TOUR")
 
-     HELPTEXT=$(gettext "There are many resources to get help")
+     HELPTEXT=$(gettext "Below are some available resources to get help")
 
 NO_TOUR=$(gettext "\n<b>You are not using a MX Tour compatible Desktop Environment or Window Manager.\n</b>
 MX Tour is only compatible with the MX Linux Xfce, KDE, and Fluxbox editions.\n
@@ -94,6 +94,9 @@ then
 elif [ "$WM" == "KWin" ];
 then
 	source mx-kde-tour
+elif [ "$WM" == "Fluxbox" ];
+then
+	source mx-fb-tour
 else
 	notour
 fi

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=System;
+Exec=xdg-open https://www.reddit.com/r/MXLinux/
+GenericName[en_US]=MX on Reddit
+GenericName=MX on Reddit
+Icon=reddit
+MimeType=
+Name=MX on Reddit
+Comment=Talk with the MX Community on Reddit
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

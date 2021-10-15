@@ -1,0 +1,19 @@
+[Desktop Entry]
+Categories=System;
+Exec=xdg-open http://www.mxlinux.org/videos/
+GenericName[en_US]=MX Videos
+GenericName=MX Videos
+Icon=multimedia-video-player
+MimeType=
+Name=MX Videos
+Comment=Helpful videos about MX
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
