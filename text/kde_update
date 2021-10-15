@@ -1,1 +1,13 @@
-placeholder text for updating with Discover - not package install
+Updates in MX KDE are handled by the Discover application.
+
+When updates are available, the Discover icon will appear with a red dot on it in the System Tray area of the panel.
+
+You can then Left-Click the Discover icon in the System Tray and it will open to show you available updates.
+
+You can install all available updates or selectively choose the ones you want.
+
+Right-Clicking the Discover icon allows you to
+    • Open Discover
+    • See Updates
+    • Refresh
+    • Quit

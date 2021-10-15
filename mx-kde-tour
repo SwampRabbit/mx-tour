@@ -17,7 +17,7 @@ KEY=$(( ($$ * $RANDOM) % 2**15))
 WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
 WINDOW_CLASS=mx-tour
 WINDOW_WIDTH=950
-WINDOW_HEIGHT=700
+WINDOW_HEIGHT=708
 
 # l10n
 export TEXTDOMAIN=mx-tour
@@ -77,7 +77,7 @@ yad --plug=$KEY --tabnum=1      \
     --text="$INTRO"             \
     --text="<b>$WELCOME</b>"    \
     --text-align=center         \
-    $TEXT_INFO <<<$tour_intro &
+    $TEXT_INFO <<<$kde_tour_intro &
 
 # KDE Panel tab
 yad --plug=$KEY --tabnum=2         \

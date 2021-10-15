@@ -17,7 +17,7 @@ KEY=$(( ($$ * $RANDOM) % 2**15))
 WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
 WINDOW_CLASS=mx-tour
 WINDOW_WIDTH=950
-WINDOW_HEIGHT=690
+WINDOW_HEIGHT=695
 
 # l10n
 export TEXTDOMAIN=mx-tour
@@ -31,6 +31,7 @@ export TEXTDOMAINDIR=/usr/share/locale
         CONKY=$(gettext "Conky")
      MX_TOOLS=$(gettext "MX Tools")
    MX_WELCOME=$(gettext "MX Welcome")
+ MXFB_SETTINGS=$(gettext "MXFB Settings")
      MX_TWEAK=$(gettext "MX Tweak")
  INSTALL_APPS=$(gettext "Install Apps")
      UPDATING=$(gettext "Updating")
@@ -75,7 +76,7 @@ yad --plug=$KEY --tabnum=1      \
     --text="$INTRO"             \
     --text="<b>$WELCOME</b>"    \
     --text-align=center         \
-    $TEXT_INFO <<<$tour_intro &
+    $TEXT_INFO <<<$mxfb_tour_intro &
 
 # Tint2 Panel tab
 yad --plug=$KEY --tabnum=2         \
@@ -111,35 +112,35 @@ yad --plug=$KEY --tabnum=7           \
     --image-on-top                   \
     $TEXT_INFO <<<$mx_welcome &
 
-# MX Tweak tab
+# MXFB Settings Manager tab
 yad --plug=$KEY --tabnum=8         \
+    --image=${IMGDIR}/mxfb_settings.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mxfb_settings &
+
+# MX Tweak tab
+yad --plug=$KEY --tabnum=9         \
     --image=${IMGDIR}/mxfb_tweak.png \
     --image-on-top                 \
     $TEXT_INFO <<<$mxfb_tweak &
 
 # Install Apps tab
-yad --plug=$KEY --tabnum=9     \
+yad --plug=$KEY --tabnum=10     \
     --image=${IMGDIR}/mxpi.png \
     --image-on-top             \
     $TEXT_INFO <<<$mxpi &
 
 # MX Updater tab
-yad --plug=$KEY --tabnum=10          \
+yad --plug=$KEY --tabnum=11          \
     --image=${IMGDIR}/mxfb_updater.png \
     --image-on-top                   \
     $TEXT_INFO <<<$mx_updater &
 
 # MX Snapshot tab
-yad --plug=$KEY --tabnum=11           \
+yad --plug=$KEY --tabnum=12           \
     --image=${IMGDIR}/mx_snapshot.png \
     --image-on-top                    \
     $TEXT_INFO <<<$mx_snapshot &
-
-# Timeshift tab
-yad --plug=$KEY --tabnum=12         \
-    --image=${IMGDIR}/timeshift.png \
-    --image-on-top                  \
-    $TEXT_INFO <<<$timeshift &
 
 # QSI tab
 yad --plug=$KEY --tabnum=13   \
@@ -179,11 +180,11 @@ MAIN=(
     --tab="$CONKY"
     --tab="$MX_TOOLS"
     --tab="$MX_WELCOME"
+    --tab="$MXFB_SETTINGS"
     --tab="$MX_TWEAK"
     --tab="$INSTALL_APPS"
     --tab="$UPDATING"
     --tab="$MX_SNAPSHOT"
-    --tab="$TIMESHIFT"
     --tab="$SYSTEM_INFO"
     --tab="$GET_HELP"
     --active-tab=${1:-1}

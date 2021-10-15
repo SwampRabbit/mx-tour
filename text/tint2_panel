@@ -4,16 +4,16 @@ Lets explore some of the key components of the Tint2 panel at the bottom of the 
 
 (2) Settings Manager
 (3) Thunar File Manager
-(4) Firefox browser
+(4) Web Browser
 
 (5) Notification Area consists of
     • Update manager
     • Clipboard manager
     • Network manager
-    • Volume manager
+    • Sound manager
 
 (6) Clock (Date Time)
-    • Left-Click to open a calendar
+    • Left-Click to open a calendar, Escape (Esc) to close
     • Right-Click to set a alarm
     
 (7) Power Button which opens a window to
@@ -23,6 +23,6 @@ Lets explore some of the key components of the Tint2 panel at the bottom of the 
     • Shutdown
     • Suspend
 
-Panel orientation is easily changeable in MX Tools > MX Tweak.
+Panel location and orientation is easily changeable in MX Tools > MX Tweak.
 
 Even more options to customize your panel exist under Settings Manager > Tint2 Manager
