@@ -1,8 +1,6 @@
 You may have wondered about the Clock in the upper right corner of your screen, it is a Conky.
 
-Conky is a light-weight system monitor that can display any kind of information on your desktop, either as text, or using simple progress bars and graph widgets, with different fonts and colors.
-
-It can display the status of the CPU, memory, disk storage, temperatures, network interfaces, battery power, e-mail inboxes, many popular music players, weather updates, news feeds, and much more.
+Conky is a light-weight system monitor that can display the status of the CPU, memory, disk storage, temperatures, network interfaces, battery power, e-mail inboxes, many popular music players, weather updates, news feeds, and much more.
 
 MX Linux comes with many different Conkies to choose from or edit.
 

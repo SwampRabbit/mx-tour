@@ -1,10 +1,18 @@
+mx-tour (21.0.0-1~mx21+1) mx; urgency=medium
+
+  * Prepare for initial release on MX-21.
+  * Completed all initial final draft texts and images.
+  * Change version numbering to reflect MX version, plus minor versions.
+
+ -- SwampRabbit <swamprabbit@mxlinux.org>  Sun, 17 Oct 2021 03:56:01 -0400
+
 mx-tour (0.2-1~mx21+1) mx; urgency=low
 
   * Initial l10n additions, thanks fehlix @ MX Linux!
   * Initial refactoring to now run individual MX Tours for Xfce and KDE.
   * Add initial KDE text and images.
 
- -- SwampRabbit <swamprabbit@mxlinux.org>  Mon, 20 Sep 2021 16:11:32 -0400
+ -- SwampRabbit <swamprabbit@mxlinux.org>  Mon, 20 Sep 2021 17:03:42 -0400
  
 mx-tour (0.1-1~mx21+1) mx; urgency=low
 

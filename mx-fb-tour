@@ -72,10 +72,10 @@ done
 TEXT_INFO="--text-info --wrap --margins=5"
 
 # Intro tab
+# Intro tab
 yad --plug=$KEY --tabnum=1      \
-    --text="$INTRO"             \
-    --text="<b>$WELCOME</b>"    \
-    --text-align=center         \
+    --image=${IMGDIR}/tour_intro.png    \
+    --image-on-top  \
     $TEXT_INFO <<<$mxfb_tour_intro &
 
 # Tint2 Panel tab
@@ -98,7 +98,7 @@ yad --plug=$KEY --tabnum=4         \
 yad --plug=$KEY --tabnum=5      \
     --image=${IMGDIR}/conky.png \
     --image-on-top              \
-    $TEXT_INFO <<<$conky &
+    $TEXT_INFO <<<$mxfb_conky &
 
 # MX Tools tab
 yad --plug=$KEY --tabnum=6         \

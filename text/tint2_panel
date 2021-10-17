@@ -6,7 +6,7 @@ Lets explore some of the key components of the Tint2 panel at the bottom of the 
 (3) Thunar File Manager
 (4) Web Browser
 
-(5) Notification Area consists of
+(5) Notification Area consisting of:
     • Update manager
     • Clipboard manager
     • Network manager
@@ -16,12 +16,8 @@ Lets explore some of the key components of the Tint2 panel at the bottom of the 
     • Left-Click to open a calendar, Escape (Esc) to close
     • Right-Click to set a alarm
     
-(7) Power Button which opens a window to
-    • Lock
-    • Log Out
-    • Restart
-    • Shutdown
-    • Suspend
+(7) Power Button which opens a window to:
+    • Lock • Log Out • Restart • Shutdown • Suspend
 
 Panel location and orientation is easily changeable in MX Tools > MX Tweak.
 
