@@ -74,7 +74,7 @@ TEXT_INFO="--text-info --wrap --margins=5"
 
 # Intro tab
 yad --plug=$KEY --tabnum=1      \
-    --image=${IMGDIR}/tour_intro.png    \
+    --image=${IMGDIR}/kde_tour_intro.png    \
     --image-on-top  \
     $TEXT_INFO <<<$kde_tour_intro &
 

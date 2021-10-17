@@ -72,7 +72,7 @@ TEXT_INFO="--text-info --wrap --margins=5"
 
 # Intro tab
 yad --plug=$KEY --tabnum=1      \
-    --image=${IMGDIR}/tour_intro.png    \
+    --image=${IMGDIR}/xfce_tour_intro.png    \
     --image-on-top  \     \
     $TEXT_INFO <<<$xfce_tour_intro &
 
