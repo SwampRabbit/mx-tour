@@ -3,13 +3,13 @@ You've probably noticed that the default desktop of MX Linux has a single vertic
 
 This may be very different to what you are used to, but it saves screen space for your applications, and it can become very natural after a short amount of time.
 
-The panel orientation is easily changeable in MX Tools > MX Tweak.
+Panel orientation is easily changeable in MX Tools > MX Tweak.
 
 Even more options to customize your panel exist under Settings Manager > Panel
 
 Lets explore some of the key components of the panel from top to bottom:
 
-(1) Power Button which opens a window to
+(1) Power Button which opens a window to:
     • Log Out
     • Restart
     • Shutdown

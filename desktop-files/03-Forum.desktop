@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=System;
+Exec=xdg-open https://forum.mxlinux.org/
+GenericName[en_US]=MX Forums
+GenericName=MX Forums
+Icon=mx-user
+MimeType=
+Name=MX Forums
+Name[am]=MX User Manual
+Comment=Get help from the MX Forums
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,25 @@
+The default KDE panel sits at the bottom on the screen and includes from left to right:
+
+(1) Application Menu
+
+(2) Virtual Desktop switcher
+
+(3) Task Manager
+    • Settings Manager
+    • Thunar File Manager
+    • Firefox browser
+
+(4) System Load Viewer
+
+(5) System Tray
+    • Discover
+    • Yakuake drop down terminal
+    • Klipper clipboard utility
+    • Audio Volume Settings
+    • Network Connection Settings
+    • Show Status and Notifications
+
+(6) Digital Clock
+
+You can modify the panel by Right-Clicking on it and choosing "Edit Panel" or "Add Widgets".
+Panel orientation is easily changeable in MX Tools > MX Tweak.

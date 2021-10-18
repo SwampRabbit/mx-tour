@@ -1,0 +1,24 @@
+Lets explore some of the key components of the Tint2 panel at the bottom of the screen.
+
+(1) Application Finder (Application Menu)
+
+(2) Settings Manager
+(3) Thunar File Manager
+(4) Web Browser
+
+(5) Notification Area consisting of:
+    • Update manager
+    • Clipboard manager
+    • Network manager
+    • Sound manager
+
+(6) Clock (Date Time)
+    • Left-Click to open a calendar, Escape (Esc) to close
+    • Right-Click to set a alarm
+    
+(7) Power Button which opens a window to:
+    • Lock • Log Out • Restart • Shutdown • Suspend
+
+Panel location and orientation is easily changeable in MX Tools > MX Tweak.
+
+Even more options to customize your panel exist under Settings Manager > Tint2 Manager

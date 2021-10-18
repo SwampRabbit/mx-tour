@@ -1,0 +1,195 @@
+#!/bin/bash
+
+#
+# Fluxbox specific MX Tour for MX Linux 21
+#
+
+# set some stuff up
+KEY=$(( ($$ * $RANDOM) % 2**15))
+
+# set to run dir if images and text exists
+[[ ${0%%/*} == . ]] && [[ -d text   ]] && TXTDIR=./text
+[[ ${0%%/*} == . ]] && [[ -d images ]] && IMGDIR=./images
+
+: ${TXTDIR:=/usr/share/mx-tour/text}
+: ${IMGDIR:=/usr/share/mx-tour/images}
+
+WINDOW_ICON=/usr/share/icons/hicolor/scalable/apps/mx-tour.svg
+WINDOW_CLASS=mx-tour
+WINDOW_WIDTH=950
+WINDOW_HEIGHT=695
+
+# l10n
+export TEXTDOMAIN=mx-tour
+export TEXTDOMAINDIR=/usr/share/locale
+#. gettext.sh
+
+        TITLE=$(gettext "MX Tour (Fluxbox)")
+        INTRO=$(gettext "Intro")
+        PANEL=$(gettext "Panel")
+      APP_DOCK=$(gettext "App Dock")
+        CONKY=$(gettext "Conky")
+     MX_TOOLS=$(gettext "MX Tools")
+   MX_WELCOME=$(gettext "MX Welcome")
+ MXFB_SETTINGS=$(gettext "MXFB Settings")
+     MX_TWEAK=$(gettext "MX Tweak")
+ INSTALL_APPS=$(gettext "Install Apps")
+     UPDATING=$(gettext "Updating")
+  MX_SNAPSHOT=$(gettext "MX Snapshot")
+    TIMESHIFT=$(gettext "Timeshift")
+  SYSTEM_INFO=$(gettext "System Info")
+     GET_HELP=$(gettext "Get Help")
+ APP_FINDER=$(gettext "App Finder")
+      WELCOME=$(gettext "WELCOME TO THE MX LINUX TOUR")
+
+     HELPTEXT=$(gettext "Below are some available resources to get help")
+
+        CLOSE=$(gettext gtk30 "_Close")
+         NEXT=$(gettext gtk30 "_Next")
+     PREVIOUS=$(gettext gtk30 "_Previous")
+
+
+# some functions
+pushtext(){  # push text file into var
+    local file=${1} var=${2}
+    : ${file:=-}
+    IFS='' read -r -d '' ${var} < <( eval cat "${file}") || true
+}
+# push texfiles into bash var's , where varname corresponds to filename 
+for F in ${TXTDIR}/*; do
+    [[ -f ${F}      ]] || continue     # only files
+    
+    N=${F##*/}   # basename
+    N=${N//-/_}  # replace hyphens with underline
+    [[ -z ${N##*.*} ]] && continue  # ignore any backup files with dot
+    [[ -z ${N##*~}  ]] && continue  # ignore any backup files with ~
+
+    declare -n nameref=$N
+    pushtext "$F" $N
+	nameref=$(gettext "$nameref")
+done
+
+TEXT_INFO="--text-info --wrap --margins=5"
+
+# Intro tab
+# Intro tab
+yad --plug=$KEY --tabnum=1      \
+    --image=${IMGDIR}/mxfb_tour_intro.png    \
+    --image-on-top  \
+    $TEXT_INFO <<<$mxfb_tour_intro &
+
+# Tint2 Panel tab
+yad --plug=$KEY --tabnum=2         \
+    --image=${IMGDIR}/tint2_panel.png    \
+     --image-on-top                 \
+    $TEXT_INFO <<<$tint2_panel &
+
+# Application Finder tab
+yad --plug=$KEY --tabnum=3             \
+    --image=${IMGDIR}/app_finder.png \
+    $TEXT_INFO <<<$app_finder &
+
+# Application Dock tab
+yad --plug=$KEY --tabnum=4         \
+    --image=${IMGDIR}/mxfb_dock.png \
+    $TEXT_INFO <<<$mxfb_dock &
+
+# Conky tab
+yad --plug=$KEY --tabnum=5      \
+    --image=${IMGDIR}/conky.png \
+    --image-on-top              \
+    $TEXT_INFO <<<$mxfb_conky &
+
+# MX Tools tab
+yad --plug=$KEY --tabnum=6         \
+    --image=${IMGDIR}/mx_tools.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mx_tools &
+
+# MX Welcome tab
+yad --plug=$KEY --tabnum=7           \
+    --image=${IMGDIR}/mx_welcome.png \
+    --image-on-top                   \
+    $TEXT_INFO <<<$mx_welcome &
+
+# MXFB Settings Manager tab
+yad --plug=$KEY --tabnum=8         \
+    --image=${IMGDIR}/mxfb_settings.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mxfb_settings &
+
+# MX Tweak tab
+yad --plug=$KEY --tabnum=9         \
+    --image=${IMGDIR}/mxfb_tweak.png \
+    --image-on-top                 \
+    $TEXT_INFO <<<$mxfb_tweak &
+
+# Install Apps tab
+yad --plug=$KEY --tabnum=10     \
+    --image=${IMGDIR}/mxpi.png \
+    --image-on-top             \
+    $TEXT_INFO <<<$mxpi &
+
+# MX Updater tab
+yad --plug=$KEY --tabnum=11          \
+    --image=${IMGDIR}/mxfb_updater.png \
+    --image-on-top                   \
+    $TEXT_INFO <<<$mx_updater &
+
+# MX Snapshot tab
+yad --plug=$KEY --tabnum=12           \
+    --image=${IMGDIR}/mx_snapshot.png \
+    --image-on-top                    \
+    $TEXT_INFO <<<$mx_snapshot &
+
+# QSI tab
+yad --plug=$KEY --tabnum=13   \
+    --image=${IMGDIR}/qsi.png \
+    --image-on-top            \
+    $TEXT_INFO <<<$qsi &
+
+# Get Help tab
+    yad --plug=$KEY --tabnum=14 \
+    --image=help-browser        \
+    --text="$GET_HELP"          \
+    --text="<b>$HELPTEXT</b>" --text-align=center \
+    yad --icons --read-dir=/usr/share/mx-tour/desktop-files/ --single-click --monitor --icon-size=64 --item-width=96 &
+
+# main dialog
+MAIN=(
+    yad
+    --notebook
+    --title="$TITLE"
+    --window-icon="$WINDOW_ICON"
+    --class="$WINDOW_CLASS"
+    --width=$WINDOW_WIDTH
+    --height=$WINDOW_HEIGHT
+    --no-buttons
+    --fixed
+    --center
+    --stack
+#    --button="$CLOSE"
+#   --button="$PREVIOUS"
+#   --button="$NEXT"
+    --key=$KEY
+    --tab-pos=left
+    --tab="$INTRO"
+    --tab="$PANEL"
+    --tab="$APP_FINDER"
+    --tab="$APP_DOCK"
+    --tab="$CONKY"
+    --tab="$MX_TOOLS"
+    --tab="$MX_WELCOME"
+    --tab="$MXFB_SETTINGS"
+    --tab="$MX_TWEAK"
+    --tab="$INSTALL_APPS"
+    --tab="$UPDATING"
+    --tab="$MX_SNAPSHOT"
+    --tab="$SYSTEM_INFO"
+    --tab="$GET_HELP"
+    --active-tab=${1:-1}
+    )
+
+"${MAIN[@]}"
+
+exit 0
