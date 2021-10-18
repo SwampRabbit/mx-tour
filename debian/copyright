@@ -23,7 +23,11 @@ License: GPL-3.0+
  On Debian systems, the complete text of the GNU General
  Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
 
-Files: Original Direction Sign icon
+Files: Original directional-sign icon
+    Copyright (C) 2021 Freepik <freepik.com>
+License: Flaticon License
+
+Files: Original hand-drawn-map-background
     Copyright (C) 2021 Freepik <freepik.com>
 License: Flaticon License
 
