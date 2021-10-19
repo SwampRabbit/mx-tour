@@ -1,3 +1,9 @@
+mx-tour (21.0.0-2~mx21+1) mx; urgency=medium
+
+  * Repackaging for final MX-21 release.
+
+ -- SwampRabbit <swamprabbit@mxlinux.org>  Tue, 19 Oct 2021 16:27:03 -0400
+
 mx-tour (21.0.0-1~mx21+1) mx; urgency=medium
 
   * Prepare for initial release on MX-21.
